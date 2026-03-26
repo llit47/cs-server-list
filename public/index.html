@@ -954,13 +954,12 @@
         const res = await fetch('/api/maps');
         const data = await res.json();
         const select = document.getElementById('mapFilter');
-        const prev = state.map;
-        
+
         select.innerHTML = '<option value="">Wszystkie mapy</option>' + data.maps
           .sort()
           .map((map) => '<option value="' + escapeHtml(map) + '">' + escapeHtml(map) + '</option>')
           .join('');
-        
+
         // Pre-select de_dust2 as default
         select.value = 'de_dust2';
         state.map = 'de_dust2';
